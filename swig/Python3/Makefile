@@ -58,6 +58,11 @@ else
   endif
 endif
 
+#以下修改内容请根据系统选择，这里环境为ubuntu1804
+ifneq (,$(findstring aarch64,$(shell uname -m)))
+  SNOWBOYDETECTLIBFILE = $(TOPDIR)/lib/aarch64-ubuntu1604/libsnowboy-detect.a
+endif
+
 all: $(SNOWBOYSWIGLIBFILE) $(SNOWBOYDETECTSWIGLIBFILE)
 
 %.a:
